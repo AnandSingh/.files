@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/anand/wrk/embvid/embvid/conf/machine'
+let g:netrw_dirhist_2='/home/anand/wrk/embvid/openembedded/conf/machine/include'
+let g:netrw_dirhist_3='/home/anand/embvid/mappkart/install/sql'
+let g:netrw_dirhist_4='/home/anand/embvid/anandkrs/anandkrs/ci_2.1.3/application'
