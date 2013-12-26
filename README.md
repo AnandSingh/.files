@@ -24,4 +24,21 @@ $ git submodule foreach git pull origin master
 	export TERM=xterm-256color
     if>
 ```
-3. Install plugins as submodule
+3. To install plugins as submodule
+```
+$ cd ~/.vim
+$ mkdir ~/.vim/bundle
+$ git submodule add https://github.com/scroolloose/nerdtree bundle/nerdtree
+$ git add .
+$ git commit -m "Install nerdtree as submodule "bundle/nerdtree""
+
+4. To remove plugins
+```
+$ git config -f .git/config --remove-section submodule.bundle/nerdtree
+$ git config -f .gitmodule --remove-section submodule.bundle/nerdtree
+$ git rm --cached bundle/nerdtree
+$ rm -rf bundle/nerdtree
+$ rm -rf .git/modules/bundle/nerdtree
+$ git add .gitmodules
+$ git commit -m "Removed plugin bundle/nerdtree"
+```
