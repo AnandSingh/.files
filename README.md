@@ -15,15 +15,15 @@ $ git submodule foreach git pull origin master
 ```
 
 
-1. install vim-pathogen from "https://github.com/tpope/vim-pathogen"
+1. Install vim-pathogen from "https://github.com/tpope/vim-pathogen"
 2. To use 256-color install ncurses-term, then "echo $TERM" would give
    "xtrem-256color". If using gnome-terminal add following into ~/.bashrc
    script
-``
-	if["$COLORTERM"=="gnome-terminal"];then
-		export TERM=xterm-256color
-	if
-```
+<
+    if["$COLORTERM"=="gnome-terminal"];then
+    	export TERM=xterm-256color
+    if
+>
 3. To install plugins as submodule
 ```
 $ cd ~/.vim
