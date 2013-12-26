@@ -17,7 +17,8 @@ $ git submodule foreach git pull origin master
 
 * Install vim-pathogen from "https://github.com/tpope/vim-pathogen"
 * Install vim-airline from "https://github.com/bling/vim-airline"
-3. To use 256-color install ncurses-term, then "echo $TERM" would give
+* Install taglist.vim from "https://github.com/bling/taglist.vim"
+* To use 256-color install ncurses-term, then "echo $TERM" would give
    "xtrem-256color". If using gnome-terminal add following into ~/.bashrc
    script
 ```
@@ -25,7 +26,7 @@ $ git submodule foreach git pull origin master
     	export TERM=xterm-256color
     if
 ```
-3. To install plugins as submodule
+* To install plugins as submodule
 ```
 $ cd ~/.vim
 $ mkdir ~/.vim/bundle
@@ -33,7 +34,7 @@ $ git submodule add https://github.com/scroolloose/nerdtree bundle/nerdtree
 $ git add .
 $ git commit -m "Install nerdtree as submodule "bundle/nerdtree""
 ```
-4. To remove plugins
+* To remove plugins
 ```
 $ git config -f .git/config --remove-section submodule.bundle/nerdtree
 $ git config -f .gitmodule --remove-section submodule.bundle/nerdtree
