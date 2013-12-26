@@ -20,9 +20,9 @@ $ git submodule foreach git pull origin master
    "xtrem-256color". If using gnome-terminal add following into ~/.bashrc
    script
 ``
-   <if["$COLORTERM"=="gnome-terminal"];then
-	export TERM=xterm-256color
-    if>
+	if["$COLORTERM"=="gnome-terminal"];then
+		export TERM=xterm-256color
+	if
 ```
 3. To install plugins as submodule
 ```
@@ -31,7 +31,7 @@ $ mkdir ~/.vim/bundle
 $ git submodule add https://github.com/scroolloose/nerdtree bundle/nerdtree
 $ git add .
 $ git commit -m "Install nerdtree as submodule "bundle/nerdtree""
-
+```
 4. To remove plugins
 ```
 $ git config -f .git/config --remove-section submodule.bundle/nerdtree
