@@ -89,7 +89,7 @@ set ffs=unix,dos,mac
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Turn backup off as everythng is in git 
 set nobackup
-"set noswp
+set nowritebackup
 set noswapfile
 
 
