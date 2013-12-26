@@ -20,6 +20,7 @@ $ git submodule foreach git pull origin master
 * Install taglist.vim from "https://github.com/bling/taglist.vim"
 * Install vim-colors-solarized from "https://github.com/altercation/vim-colors-solarized"
 * Install OmniCppComplete from "https://github.com/vim-scripts/OmniCppComplete"
+* Install javacomplete from "https://github.com/vim-scripts/javacomplete"
 * To use 256-color install ncurses-term, then "echo $TERM" would give
    "xtrem-256color". If using gnome-terminal add following into ~/.bashrc
    script
