@@ -18,6 +18,7 @@ $ git submodule foreach git pull origin master
 * Install vim-pathogen from "https://github.com/tpope/vim-pathogen"
 * Install vim-airline from "https://github.com/bling/vim-airline"
 * Install taglist.vim from "https://github.com/bling/taglist.vim"
+* Install vim-colors-solarized from "https://github.com/altercation/vim-colors-solarized"
 * To use 256-color install ncurses-term, then "echo $TERM" would give
    "xtrem-256color". If using gnome-terminal add following into ~/.bashrc
    script
