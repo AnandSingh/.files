@@ -30,6 +30,13 @@ set history=500		" keep 500 lines of command line history
 filetype plugin on
 filetype indent on
 
+" define leader key
+let mapleader = ","
+let g:mapleader = ","
+
+" Fast saving
+nmap <Leader>w :w!<cr>
+
 " Set to auto read when a file is changed outside
 set autoread
 " Ignore compiled files
@@ -110,6 +117,18 @@ set wrap "Wrap lines
 
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Moving around 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" map space to search and ctrl-space to backwards search
+map <space> /
+map <c-space> ?
+
+" map to move around windows 
+map <C-j> <C-w>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
 " runtime path manipulation for Pathogen
 " https://github.com/tpope/vim-pathogen/
