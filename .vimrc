@@ -1,22 +1,115 @@
-" An example for a vimrc file.
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2008 Dec 17
+" Maintainer: Anand Singh <email@anandkrs@gmail.com>
+" Last change:	2013 Dec 25
 "
 " To use it, copy it to
 "     for Unix and OS/2:  ~/.vimrc
 "	      for Amiga:  s:.vimrc
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
+"Refrence: 
+"   amix.dk/vim/vimrc.html
+"
+"Sections:
+"	-> General
+"   -> Colors and Fonts 
+"   -> Files, backups & undo 
+"   -> Tab & Indent 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+
+set history=500		" keep 500 lines of command line history
+" Enable filetype plugins
+filetype plugin on
+filetype indent on
+
+" Set to auto read when a file is changed outside
+set autoread
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc
+set ruler		" show the cursor position all the time
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+set whichwrap+=<,>,h,l
+set ignorecase " ignore cae while searching
+" when searching try to be smart about cases
+set smartcase
+" Highlight search result
+set hlsearch
+set incsearch		" do incremental searching
+" show matching brackets when text indicator is over then 
+set showmatch
+" how manny tenths of a sec to blink when matching brackets
+set mat=2
+
+" no sound in case of error
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+set number
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and Fonts 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" enable syntex highlighting
+syntax enable
+
+" colorscheme listing
+" for xoria256
+colorscheme xoria256
+" for solarized
+" syntax enable
+" set background=light
+" let g:solarized_termcolors=256
+" colorscheme solarized
+
+" set standard encoding as utf8 and en_US as the standard language
+set encoding=utf8
+
+" Use unix as the standard file type
+set ffs=unix,dos,mac
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Files, backups & undo 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Turn backup off as everythng is in git 
+set nobackup
+"set noswp
+set noswapfile
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Tab & Indent 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" use spaes instead of tav
+set expandtab
+
+" be smart with tabs
+set smarttab
+
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
+" Turn backup off as everythng is in git 
+
+" linebreak on 500 char
+set lbr
+set tw=500
+
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
+
+
+
 
 " runtime path manipulation for Pathogen
 " https://github.com/tpope/vim-pathogen/
@@ -33,21 +126,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 " ctrlp help  http://kien.github.io/ctrlp.vim/
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
-" if has("vms")
-"  set nobackup		" do not keep a backup file, use versions instead
-" else
-"  set backup		" keep a backup file
-" endif
-set history=100		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
-
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -61,13 +140,6 @@ inoremap <C-U> <C-G>u<C-U>
 "  set mouse=a
 "endif
 set mouse=a
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-endif
 
 setlocal omnifunc=javacomplete#Complete
 " Only do this part when compiled with support for autocommands.
@@ -99,22 +171,8 @@ if has("autocmd")
 
   augroup END
 
-else
-
-  set autoindent		" always set autoindenting on
-
 endif " has("autocmd")
 
-:set number
-
-" colorscheme listing
-" for xoria256
-colorscheme xoria256
-" for solarized
-" syntax enable
-" set background=light
-" let g:solarized_termcolors=256
-" colorscheme solarized
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
