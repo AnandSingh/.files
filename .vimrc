@@ -15,7 +15,8 @@
 "	-> General
 "   -> Colors and Fonts 
 "   -> Files, backups & undo 
-"   -> Tab & Indent 
+"   -> Tab & Indent
+"   -> Plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -130,6 +131,10 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugin 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" map space to search and ctrl-space to backwards search
 " runtime path manipulation for Pathogen
 " https://github.com/tpope/vim-pathogen/
 execute pathogen#infect()
@@ -143,6 +148,21 @@ map <C-n> :NERDTreeToggle<CR>
 " close vim if the only window left open is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
+if has('cscope')
+    set cscopetag cscopeverbose
+
+    if has('quickfix')
+        set cscopequickfix=s-,c-,d-,i-,t-,e-
+    endif
+
+    cnoreabbrev csa cs add
+    cnoreabbrev csf cs find
+    cnoreabbrev csk cs kill
+    cnoreabbrev csr cs reset
+    cnoreabbrev css cs show
+    cnoreabbrev csh cs help
+    command -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
+endif
 " ctrlp help  http://kien.github.io/ctrlp.vim/
 
 set showcmd		" display incomplete commands
