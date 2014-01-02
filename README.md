@@ -47,3 +47,4 @@ $ rm -rf .git/modules/bundle/nerdtree
 $ git add .gitmodules
 $ git commit -m "Removed plugin bundle/nerdtree"
 ```
+* Check "http://vim.wikia.com/wiki/Cscope" for additionl information on CScope
