@@ -21,6 +21,7 @@ $ git submodule foreach git pull origin master
 * Install vim-colors-solarized from "https://github.com/altercation/vim-colors-solarized"
 * Install OmniCppComplete from "https://github.com/vim-scripts/OmniCppComplete"
 * Install javacomplete from "https://github.com/vim-scripts/javacomplete"
+* Install ctrlp.vim from "https://github.com/kien/ctrlp.vim"
 * To use 256-color install ncurses-term, then "echo $TERM" would give
    "xtrem-256color". If using gnome-terminal add following into ~/.bashrc
    script
@@ -47,3 +48,4 @@ $ rm -rf .git/modules/bundle/nerdtree
 $ git add .gitmodules
 $ git commit -m "Removed plugin bundle/nerdtree"
 ```
+* Check "http://vim.wikia.com/wiki/Cscope" for additionl information on CScope
