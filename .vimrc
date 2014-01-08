@@ -236,3 +236,22 @@ if !exists(":DiffOrig")
 endif 
 
 set tags=tags
+
+
+" Will allow you to use :w!! to write to a file using sudo if you forgot to sudo
+" " vim file (it will prompt for sudo password when writing)
+" " http://stackoverflow.com/questions/95072/what-are-your-favorite-vim-tricks/96492#96492
+cmap w!! %!sudo tee > /dev/null %
+
+
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprevious<CR>
