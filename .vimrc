@@ -139,6 +139,21 @@ map <C-l> <C-W>l
 " https://github.com/tpope/vim-pathogen/
 execute pathogen#infect()
 
+" ctrlp help  http://kien.github.io/ctrlp.vim/
+let g:ctrlp_map = '<c-p>'
+" When invoked, unless a starting directory is specified, 
+" CtrlP will set its local working directory according to this variable:
+"   'c'  - the directory of the current file
+"   'r'  - the nearest ancestor that contains one of these directories or files .git 
+"          .hg .svn .bzr _darcs
+"   'a'  - like c but only if the currenty working directory outside of CtrlP 
+"           is not a direct ancestor of the directory of the current file
+"    0 or '' disable the feature
+let g:ctrlp_working_path_mode = 'ra'
+
+" Use an coustom find file command
+let g:ctrlp_user_command = 'find %s -type f'
+
 " open NERDTree automatically when vim starts up if no files were specified
 autocmd vimenter * if !argc() | NERDTree | endif
 " open NERDTree automtically when vim starts up
@@ -163,7 +178,6 @@ if has('cscope')
     cnoreabbrev csh cs help
     command -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
 endif
-" ctrlp help  http://kien.github.io/ctrlp.vim/
 
 set showcmd		" display incomplete commands
 
