@@ -22,6 +22,7 @@ $ git submodule foreach git pull origin master
 * Install OmniCppComplete from "https://github.com/vim-scripts/OmniCppComplete"
 * Install javacomplete from "https://github.com/vim-scripts/javacomplete"
 * Install ctrlp.vim from "https://github.com/kien/ctrlp.vim"
+* Install syntastic from "https://github.com/scroolose/syntastic"
 * To use 256-color install ncurses-term, then "echo $TERM" would give
    "xtrem-256color". If using gnome-terminal add following into ~/.bashrc
    script
