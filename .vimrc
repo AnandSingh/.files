@@ -253,5 +253,5 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
-nnoremap <C-n> :bnext<CR>
-nnoremap <C-p> :bprevious<CR>
+"nnoremap <C-n> :bnext<CR>
+"nnoremap <C-p> :bprevious<CR>
