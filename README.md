@@ -50,3 +50,13 @@ $ git add .gitmodules
 $ git commit -m "Removed plugin bundle/nerdtree"
 ```
 * Check "http://vim.wikia.com/wiki/Cscope" for additionl information on CScope
+
+* "http://www.fsl.cs.sunysb.edu/~rick/cscope.html" for tricks on ctags, cscope in VIM.
+Extaract from same site =>
+Make sure 'set csto=0' is included in your vimrc if you are coding C, and 'set csto=1' is included in your vimrc if you are coding C++ (see 'Theory' section above if you want to know why).
+Now you are ready to start using it. Simply type ':cs help' to see the commands right there. Type ':tags' to see where you currently are in the tag stack. Finally ':tag' will take you to an arbitrary symbol (and tab-completion works). Try typing ':tag sys_' and the press the Tab key and you should see it try going through several possible completions.
+ Usage:
+     Control-\ g to find the definition of a variable, 
+     Control-\ s to find its occurrence as a symbol in other code
+     Control-\ c to see where the symbol is called from. 
+     The command 'q:' allows you to edit the command line history so you can paste large identifier names into a 'cs find g' command (Ctrl-C exits 'q:' mode).
