@@ -64,6 +64,12 @@ set t_vb=
 set tm=500
 
 set number
+
+" to compile an programm (got it from http://stackoverflow.com/questions/2627886/how-do-i-run-a-c-program-from-vim)
+map <F8> :w <CR> :!gcc % -o %< && ./%< <CR>
+
+map <F10> :w<CR> :!clear; make<CR> :!./%<<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
