@@ -311,3 +311,22 @@ inoremap <right> <nop>
 
 "nnoremap <C-n> :bnext<CR>
 "nnoremap <C-p> :bprevious<CR>
+"
+" pyflakes setting
+" pyflake will notify about unsed imports and ivalid syntex
+" lets tell pyflake to not use the quick fis window
+let g:pyflakes_use_quickfix = 0
+
+" pep8 : This will ensure that code is consistent across all project.
+" Add a key mapping that will help to jump each of pep8 violations
+let g:pep8_map='<leader>8'
+
+" Enable context sensitive to enable omi code completion
+" Use super tab plugin to check the context of code and
+" choose thebest situation for that
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType= "context"
+
+" Enable menu and pydoc preview to get most useful information out
+" of the code completion
+set completopt=menuone,longest,preview
