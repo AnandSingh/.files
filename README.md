@@ -76,3 +76,4 @@ Now you are ready to start using it. Simply type ':cs help' to see the commands 
      Control-\ c to see where the symbol is called from. 
      The command 'q:' allows you to edit the command line history so you can paste large identifier names into a 'cs find g' command (Ctrl-C exits 'q:' mode).
 * Check pyhton related vim setting and plugin information at "http://www.sontek.net/blog/2011/05/07/turning_vim_into_a_modern_python_ide.html#id9"
+* Check vim with django at "https://code.djangoproject.com/wiki/UsingVimWithDjango"
