@@ -1,4 +1,7 @@
- To store my vim and bash related settings
+VIM Setting
+============
+
+To store my vim and bash related settings
 
 Clone this repository as
 ```
@@ -13,7 +16,8 @@ Upgrading all bundled plugins
 ```
 $ git submodule foreach git pull origin master
 ```
-
+Below are the list of plugin used and it's sources
+------
 
 * Install vim-pathogen from "https://github.com/tpope/vim-pathogen"
 * Install vim-airline from "https://github.com/bling/vim-airline"
@@ -31,7 +35,8 @@ $ git submodule foreach git pull origin master
     	export TERM=xterm-256color
     if
 ```
-* To install plugins as submodule
+To install plugins as submodule
+---------
 ```
 $ cd ~/.vim
 $ mkdir ~/.vim/bundle
