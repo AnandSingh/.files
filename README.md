@@ -2,7 +2,8 @@ VIM Setting
 ============
 
 To store my vim and bash related settings
-
+How to setup 
+------
 Clone this repository as
 ```
 $ cd ~
@@ -27,6 +28,12 @@ Below are the list of plugin used and it's sources
 * Install javacomplete from "https://github.com/vim-scripts/javacomplete"
 * Install ctrlp.vim from "https://github.com/kien/ctrlp.vim"
 * Install syntastic from "https://github.com/scroolose/syntastic"
+* Install supertab from https://github.com/ervandew/supertab.git bundle/supertab
+* Install pyflakes-pathogen from https://github.com/mitechie/pyflakes-pathogen.git
+* Install ack from https://github.com/mileszs/ack.vim.git bundle/ack
+* Install pydoc from https://github.com/fs111/pydoc.vim.git bundle/pydoc
+* Install pep8 from https://github.com/vim-scripts/pep8.git bundle/pep8
+* Install py.test from https://github.com/alfredodeza/pytest.vim.git 
 * To use 256-color install ncurses-term, then "echo $TERM" would give
    "xtrem-256color". If using gnome-terminal add following into ~/.bashrc
    script
@@ -44,7 +51,8 @@ $ git submodule add https://github.com/scroolloose/nerdtree bundle/nerdtree
 $ git add .
 $ git commit -m "Install nerdtree as submodule "bundle/nerdtree""
 ```
-* To remove plugins
+To remove plugins
+------
 ```
 $ git config -f .git/config --remove-section submodule.bundle/nerdtree
 $ git config -f .gitmodule --remove-section submodule.bundle/nerdtree
@@ -54,6 +62,8 @@ $ rm -rf .git/modules/bundle/nerdtree
 $ git add .gitmodules
 $ git commit -m "Removed plugin bundle/nerdtree"
 ```
+Additional Information
+------
 * Check "http://vim.wikia.com/wiki/Cscope" for additionl information on CScope
 
 * "http://www.fsl.cs.sunysb.edu/~rick/cscope.html" for tricks on ctags, cscope in VIM.
@@ -65,3 +75,4 @@ Now you are ready to start using it. Simply type ':cs help' to see the commands 
      Control-\ s to find its occurrence as a symbol in other code
      Control-\ c to see where the symbol is called from. 
      The command 'q:' allows you to edit the command line history so you can paste large identifier names into a 'cs find g' command (Ctrl-C exits 'q:' mode).
+* Check pyhton related vim setting and plugin information at "http://www.sontek.net/blog/2011/05/07/turning_vim_into_a_modern_python_ide.html#id9"
