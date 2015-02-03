@@ -57,6 +57,9 @@ set showmatch
 " how manny tenths of a sec to blink when matching brackets
 set mat=2
 
+" Speed up the navigation by giving a list of file with line number
+" use ! at the end so that it doesn't open the first result automatically
+nmap <leader>a <Esc>:Ack!
 " no sound in case of error
 set noerrorbells
 set novisualbell
