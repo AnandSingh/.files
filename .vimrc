@@ -115,6 +115,11 @@ set smarttab
 " 1 tab == 4 spaces
 set shiftwidth=4
 set tabstop=4
+" Configure shiftwidth, tabstop, and softtabstop for python file
+autocmd Filetype python set sw=4
+autocmd Filetype python set tx=4
+autocmd Filetype python set sts=4
+
 " Turn backup off as everythng is in git 
 
 " linebreak on 500 char
