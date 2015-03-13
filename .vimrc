@@ -117,7 +117,7 @@ set shiftwidth=4
 set tabstop=4
 " Configure shiftwidth, tabstop, and softtabstop for python file
 autocmd Filetype python set sw=4
-autocmd Filetype python set tx=4
+autocmd Filetype python set ts=4
 autocmd Filetype python set sts=4
 
 " Turn backup off as everythng is in git 
@@ -337,4 +337,4 @@ let g:SuperTabDefaultCompletionType= "context"
 
 " Enable menu and pydoc preview to get most useful information out
 " of the code completion
-set completopt=menuone,longest,preview
+set completeopt=menuone,longest,preview
