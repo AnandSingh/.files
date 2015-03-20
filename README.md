@@ -35,6 +35,15 @@ Below are the list of plugin used and it's sources
 * Install pep8 from https://github.com/vim-scripts/pep8.git bundle/pep8
 * Install py.test from https://github.com/alfredodeza/pytest.vim.git 
 * Install YouCompleteMe from https://github.com/Valloric/YouCompleteMe 
+* YCM Installation steps
+```
+    $ cd ~
+    $ mkdir ycm_build
+    $ cd ycm_build
+    $ cmake -G "Unix Makefiles" . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
+    $ cmake -G "Unix Makefiles" -DPATH_TO_LLVM_ROOT=~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/llvm/ . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp 
+    $ make ycm_support_libs
+```
 * To use 256-color install ncurses-term, then "echo $TERM" would give
    "xtrem-256color". If using gnome-terminal add following into ~/.bashrc
    script
