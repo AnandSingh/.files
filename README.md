@@ -55,8 +55,8 @@ Below are the list of plugin used and it's sources
 To install plugins as submodule
 ---------
 ```
-$ cd ~/.vim
 $ mkdir ~/.vim/bundle
+$ cd ~/.vim/bundle
 $ git submodule add https://github.com/scroolloose/nerdtree bundle/nerdtree
 $ git add .
 $ git commit -m "Install nerdtree as submodule "bundle/nerdtree""
