@@ -34,6 +34,7 @@ Below are the list of plugin used and it's sources
 * Install pydoc from https://github.com/fs111/pydoc.vim.git bundle/pydoc
 * Install pep8 from https://github.com/vim-scripts/pep8.git bundle/pep8
 * Install py.test from https://github.com/alfredodeza/pytest.vim.git 
+* Install vim-bracketed-paste from https://github.com/ConradIrwin/vim-bracketed-paste 
 * Install YouCompleteMe from https://github.com/Valloric/YouCompleteMe 
 * YCM Installation steps
 ```
