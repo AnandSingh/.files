@@ -40,3 +40,6 @@
 [submodule "bundle/YouCompleteMe"]
 	path = bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe
+[submodule "bundle/vim-bracketed-paste"]
+	path = bundle/vim-bracketed-paste
+	url = https://github.com/ConradIrwin/vim-bracketed-paste
