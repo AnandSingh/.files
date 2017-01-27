@@ -140,10 +140,11 @@ map <space> /
 map <c-space> ?
 
 " map to move around windows 
-map <C-j> <C-w>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+map <C-q> <C-w>j
+map <C-w> <C-W>k
+map <C-a> <C-W>h
+map <C-s> <C-W>l
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin 
@@ -167,6 +168,11 @@ let g:ctrlp_working_path_mode = 'ra'
 
 " Use an coustom find file command
 let g:ctrlp_user_command = 'find %s -type f'
+
+let g:ctrlp_prompt_mappings = {
+    \ 'PrtBS()': ['<c-h>'],
+    \ 'PrtCurLeft()': ['<left>'],
+    \ }
 
 " open NERDTree automatically when vim starts up if no files were specified
 autocmd vimenter * if !argc() | NERDTree | endif
