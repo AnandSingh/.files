@@ -10,6 +10,7 @@ $ cd ~
 $ git clone https://github.com/AnandSingh/.vim ~/.vim
 $ ln -s ~/.vim/.vimrc ~/.vimrc
 $ ln -s ~/.vim/.bashrc ~/.bashrc
+$ cd ~/.vim
 $ git submodule init
 $ git submodule update
 ```
