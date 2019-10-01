@@ -1,346 +1,207 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" Maintainer: Anand Singh <email@anandkrs@gmail.com>
-" Last change:	2013 Dec 25
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
-"Refrence: 
-"   amix.dk/vim/vimrc.html
-"
-"Sections:
-"	-> General
-"   -> Colors and Fonts 
-"   -> Files, backups & undo 
-"   -> Tab & Indent
-"   -> Plugin
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-set history=500		" keep 500 lines of command line history
-" Enable filetype plugins
-filetype plugin on
-filetype indent on
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
-" define leader key
-let mapleader = ","
-let g:mapleader = ","
+Plugin 'tpope/vim-sensible.git'
+Plugin 'tpope/vim-fugitive'
+Plugin 'christoomey/vim-system-copy.git'
+Plugin 'tpope/vim-surround'
+Plugin 'majutsushi/tagbar'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'rdnetto/YCM-Generator'
+Plugin 'godlygeek/tabular.git'
+Plugin 'jiangmiao/auto-pairs.git'
+Plugin 'mileszs/ack.vim'
+Plugin 'Yggdroot/indentLine.git'
+Plugin 'vim-scripts/xoria256.vim.git'
+Plugin 'itchyny/lightline.vim.git'
+Plugin 'kana/vim-textobj-user.git'
+Plugin 'kana/vim-textobj-line.git'
+Plugin 'edkolev/tmuxline.vim.git'
+" Plugin 'jeaye/color_coded.git'
+Plugin 'christoomey/vim-tmux-navigator.git'
+Plugin 'tpope/vim-vinegar.git'
+Plugin 'vim-scripts/Conque-GDB.git'
+Plugin 'suan/vim-instant-markdown.git'
+Plugin 'panozzaj/vim-autocorrect'
+Plugin 'xolox/vim-colorscheme-switcher'
+Plugin 'xolox/vim-misc'
+Plugin 'rafi/awesome-vim-colorschemes'
+Plugin 'simplyzhao/cscope_maps.vim'
+" Plugin 'ludovicchabant/vim-gutentags'
+" Plugin 'skywind3000/gutentags_plus'
+" Plugin 'w0rp/ale.git'
 
-" Fast saving
-nmap <Leader>w :w!<cr>
 
-" Set to auto read when a file is changed outside
-set autoread
-" Ignore compiled files
-set wildignore=*.o,*~,*.pyc
-set ruler		" show the cursor position all the time
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-set whichwrap+=<,>,h,l
-set ignorecase " ignore cae while searching
-" when searching try to be smart about cases
-set smartcase
-" Highlight search result
-set hlsearch
-set incsearch		" do incremental searching
-" show matching brackets when text indicator is over then 
-set showmatch
-" how manny tenths of a sec to blink when matching brackets
-set mat=2
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
-" Speed up the navigation by giving a list of file with line number
-" use ! at the end so that it doesn't open the first result automatically
-nmap <leader>a <Esc>:Ack!
-" no sound in case of error
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
-
-set number
-
-" to compile an programm (got it from http://stackoverflow.com/questions/2627886/how-do-i-run-a-c-program-from-vim)
-map <F8> :w <CR> :!gcc % -o %< && ./%< <CR>
-
-map <F10> :w<CR> :!clear; make<CR> :!./%<<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" enable syntex highlighting
-syntax enable
-
-" colorscheme listing
-" for xoria256
 colorscheme xoria256
-" for solarized
-" syntax enable
-" set background=light
-" let g:solarized_termcolors=256
-" colorscheme solarized
+" colorscheme zellner
 
-" set standard encoding as utf8 and en_US as the standard language
-set encoding=utf8
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
 
-" Use unix as the standard file type
-set ffs=unix,dos,mac
+" Highlight the search pattern.
+let mapleader="\<Space>"
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files, backups & undo 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Turn backup off as everythng is in git 
-set nobackup
-set nowritebackup
-set noswapfile
+set hidden
+set directory=/tmp
+set history=1000
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set showbreak=…
+set linebreak
+set listchars=tab:►-,eol:¬,trail:●
+set relativenumber
+set number
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+retab
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Tab & Indent 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" use spaes instead of tav
-set expandtab
-
-" be smart with tabs
-set smarttab
-
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
-" Configure shiftwidth, tabstop, and softtabstop for python file
-autocmd Filetype python set sw=4
-autocmd Filetype python set ts=4
-autocmd Filetype python set sts=4
-
-" Turn backup off as everythng is in git 
-
-" linebreak on 500 char
-set lbr
-set tw=500
-
-set ai "Auto indent
-set si "Smart indent
-set wrap "Wrap lines
+" Underline current cursor line
+set cursorline
+augroup CustomCursorLine
+    au!    
+    au ColorScheme * :hi clear CursorLine
+    au ColorScheme * :hi! CursorLine gui=underline cterm=underline
+augroup END
 
 
+nnoremap <leader>l :set list!<cr>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Moving around 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" map space to search and ctrl-space to backwards search
-map <space> /
-map <c-space> ?
+nnoremap <silent><F8> :nohlsearch<cr>
 
-" map to move around windows 
-map <C-q> <C-w>j
-map <C-w> <C-W>k
-map <C-a> <C-W>h
-map <C-s> <C-W>l
+nnoremap <leader>vv :vsp<cr>
+nnoremap <leader>ss :sp<cr>
 
+" Toggle the Tlist window using <F4>
+nnoremap <silent><F4> :TagbarToggle<cr>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Plugin 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" map space to search and ctrl-space to backwards search
-" runtime path manipulation for Pathogen
-" https://github.com/tpope/vim-pathogen/
-execute pathogen#infect()
+nnoremap <leader>fb :CtrlPBuffer<cr>
+nnoremap <leader>fm :CtrlPMixed<cr>
+nnoremap <leader>ff :CtrlP getcwd()<cr>
+nnoremap <leader>ft :CtrlPTag<cr>
 
-" ctrlp help  http://kien.github.io/ctrlp.vim/
-let g:ctrlp_map = '<c-p>'
-" When invoked, unless a starting directory is specified, 
-" CtrlP will set its local working directory according to this variable:
-"   'c'  - the directory of the current file
-"   'r'  - the nearest ancestor that contains one of these directories or files .git 
-"          .hg .svn .bzr _darcs
-"   'a'  - like c but only if the currenty working directory outside of CtrlP 
-"           is not a direct ancestor of the directory of the current file
-"    0 or '' disable the feature
-let g:ctrlp_working_path_mode = 'ra'
+nnoremap <silent><leader>sv :source ~/.vimrc<cr>
+nnoremap <silent><leader>ev :edit ~/.vimrc<cr>
+nnoremap <silent><leader>et :edit ~/.tmux.conf<cr>
+nnoremap <silent><leader>eb :edit ~/.bashrc<cr>
 
-" Use an coustom find file command
-let g:ctrlp_user_command = 'find %s -type f'
+nnoremap <silent><F9>       :cprev<cr>zz
+nnoremap <silent><F10>      :cnext<cr>zz
+nnoremap <silent><C-F9>     :lprev<cr>zz
+nnoremap <silent><C-F10>    :lnext<cr>zz
+nnoremap <silent><M-F9>     :cfirst<cr>
+nnoremap <silent><M-F10>    :clast<cr>
+nnoremap <silent><leader>mm :set lines=10000 columns=1000<cr>
+nnoremap <silent><leader>mn :set lines=999 columns=90<cr>
 
-let g:ctrlp_prompt_mappings = {
-    \ 'PrtBS()': ['<c-h>'],
-    \ 'PrtCurLeft()': ['<left>'],
-    \ }
-
-" open NERDTree automatically when vim starts up if no files were specified
-autocmd vimenter * if !argc() | NERDTree | endif
-" open NERDTree automtically when vim starts up
-" autocmd vimenter * NERDTree
-" shortcut to open NERDTree with <ctrl+n>
-map <C-n> :NERDTreeToggle<CR>
-" close vim if the only window left open is NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-"if has('cscope')
-"    set cscopetag cscopeverbose
-
-"    if has('quickfix')
-"        set cscopequickfix=s-,c-,d-,i-,t-,e-
-"    endif
-
-"    cnoreabbrev csa cs add
-"    cnoreabbrev csf cs find
-"    cnoreabbrev csk cs kill
-"    cnoreabbrev csr cs reset
-"    cnoreabbrev css cs show
-"    cnoreabbrev csh cs help
-" command -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
-"endif
-if has("cscope")
-    set csprg=/usr/bin/cscope
-    " change this to 1 to search ctags DBs first
-    set csto=0
-    set cst
-    set nocsverb
-    " add any database in current directory
-    if filereadable("cscope.out")
-        cs add cscope.out
-    " else add database pointed to by environment
-    elseif $CSCOPE_DB != ""
-        cs add $CSCOPE_DB
-    endif
-    set csverb
-
-    " Using 'CTRL-\' then a search type makes the vim window
-    " "shell-out", with search results displayed on the bottom
-
-    nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-    nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-    nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-
-    " Using 'CTRL-spacebar' then a search type makes the vim window
-    " split horizontally, with search result displayed in
-    " the new window.
-
-    nmap <C-[>s :scs find s <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-[>g :scs find g <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-[>c :scs find c <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-[>t :scs find t <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-[>e :scs find e <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-[>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
-    nmap <C-[>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-    nmap <C-[>d :scs find d <C-R>=expand("<cword>")<CR><CR>
-
-    " Hitting CTRL-space *twice* before the search type does a vertical
-    " split instead of a horizontal one
-
-    nmap <C-[><C-[>s :vert scs find s <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-[><C-[>g :vert scs find g <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-[><C-[>c :vert scs find c <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-[><C-[>t :vert scs find t <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-[><C-[>e :vert scs find e <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-[><C-[>i :vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-    nmap <C-[><C-[>d :vert scs find d <C-R>=expand("<cword>")<CR><CR>
-endif
-set showcmd		" display incomplete commands
-
-" Don't use Ex mode, use Q for formatting
-map Q gq
-
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
-
-" In many terminal emulators the mouse works just fine, thus enable it.
-"if has('mouse')
-"  set mouse=a
-"endif
-"set mouse=a
-
-setlocal omnifunc=javacomplete#Complete
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
-
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
-
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-
-  autocmd FileType java setlocal omnifunc=javacomplete#Complete
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  " Also don't do it when the mark is in the first line, that is the default
-  " position when opening a file.
-  autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-
-  augroup END
-
-endif " has("autocmd")
-
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
-endif 
-
-set tags+=tags
-
-
-" Will allow you to use :w!! to write to a file using sudo if you forgot to sudo
-" " vim file (it will prompt for sudo password when writing)
-" " http://stackoverflow.com/questions/95072/what-are-your-favorite-vim-tricks/96492#96492
-cmap w!! %!sudo tee > /dev/null %
-
-
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-
-"nnoremap <C-n> :bnext<CR>
-"nnoremap <C-p> :bprevious<CR>
+" ================ Plugin Configuraiton  ====================
+ 
+" -------------- cscope_maps override  -----------------
+" The following maps all invoke one of the following cscope search types:
 "
-" pyflakes setting
-" pyflake will notify about unsed imports and ivalid syntex
-" lets tell pyflake to not use the quick fis window
-let g:pyflakes_use_quickfix = 0
+"   's'   symbol: find all references to the token under cursor
+"   'g'   global: find global definition(s) of the token under cursor
+"   'c'   calls:  find all calls to the function name under cursor
+"   't'   text:   find all instances of the text under cursor
+"   'e'   egrep:  egrep search for the word under cursor
+"   'f'   file:   open the filename under cursor
+"   'i'   includes: find files that include the filename under cursor
+"   'd'   called: find functions that function under cursor calls
+"
 
-" pep8 : This will ensure that code is consistent across all project.
-" Add a key mapping that will help to jump each of pep8 violations
-let g:pep8_map='<leader>8'
+noremap <leader>s :scs find s <C-R>=expand("<cword>")<CR><CR>	
+noremap <leader>g :scs find g <C-R>=expand("<cword>")<CR><CR>	
+noremap <leader>c :scs find c <C-R>=expand("<cword>")<CR><CR>	
+noremap <leader>t :scs find t <C-R>=expand("<cword>")<CR><CR>	
+noremap <leader>e :scs find e <C-R>=expand("<cword>")<CR><CR>	
+noremap <leader>f :scs find f <C-R>=expand("<cfile>")<CR><CR>	
+noremap <leader>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>	
+noremap <leader>d :scs find d <C-R>=expand("<cword>")<CR><CR>
 
-" Enable context sensitive to enable omi code completion
-" Use super tab plugin to check the context of code and
-" choose thebest situation for that
-au FileType python set omnifunc=pythoncomplete#Complete
-let g:SuperTabDefaultCompletionType= "context"
+" -------------- gutentags  -----------------
+"let g:gutentags_modules = ['ctags', 'gtags_cscope']
+"
+"" config project root markers.
+"let g:gutentags_project_root = ['.root', '.git']
+"
+"" generate datebases in my cache directory, prevent gtags files polluting my project
+"let g:gutentags_cache_dir = expand('~/.cache/tags')
+"
+"" change focus to quickfix window after search (optional).
+"let g:gutentags_plus_switch = 1
+"
+"let g:gutentags_define_advanced_commands = 1
+"let g:gutentags_cscope_executable = 'gtags-cscope' 
 
-" Enable menu and pydoc preview to get most useful information out
-" of the code completion
-set completeopt=menuone,longest,preview
+" -------------- YouCompleteMe  -----------------
+let g:ycm_always_populate_location_list            = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_error_symbol                             = 'E>'
+let g:ycm_warning_symbol                           = 'W>'
+let g:ycm_confirm_extra_conf                       = 0
+
+" -------------- lightline  -----------------
+
+" display the plugin name at the mode component?
+function! LightlineMode()
+  return expand('%:t') ==# '__Tagbar__' ? 'Tagbar':
+        \ expand('%:t') ==# 'ControlP' ? 'CtrlP' :
+        \ &filetype ==# 'unite' ? 'Unite' :
+        \ &filetype ==# 'vimfiler' ? 'VimFiler' :
+        \ &filetype ==# 'vimshell' ? 'VimShell' :
+        \ lightline#mode()
+endfunction
+
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head',
+      \   'mode': 'LightlineMode',
+      \ },
+      \ }
+
+
+
+" -------------- indentLine -----------------
+let g:indentLine_char = '|'
+
+" -------------- tagbar -----------------
+let g:tagbar_autoclose        = 1
+let g:tagbar_autofocus        = 1
+let g:tagbar_sort             = 1
+let g:tagbar_autoshowtag      = 1
+let g:tagbar_foldlevel        = 99
+let g:tagbar_show_linenumbers = -1
+
+" -------------- Ack -----------------
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" -------------- diff ------------------
+if &diff
+    set cursorline
+    map ] ]c
+    map [ [c
+    hi DiffAdd    ctermfg=233 ctermbg=LightGreen guifg=#003300 guibg=#DDFFDD gui=none cterm=none
+    hi DiffChange ctermbg=white  guibg=#ececec gui=none   cterm=none
+    hi DiffText   ctermfg=233  ctermbg=yellow  guifg=#000033 guibg=#DDDDFF gui=none cterm=none
+endif
+
+let &tags=$CTAGS_DB
