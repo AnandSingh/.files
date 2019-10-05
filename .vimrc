@@ -8,7 +8,14 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Plugin 'VundleVim/Vundle.vim'
+
+" Specify a directory for plugins
+" " - For Neovim: stdpath('data') . '/plugged'
+" " - Avoid using standard Vim directory names like 'plugin'
+"call plug#begin('~/.vim/plugged')
+
+" Make sure you use single quotes
 
 Plugin 'tpope/vim-sensible.git'
 Plugin 'tpope/vim-fugitive'
@@ -28,20 +35,22 @@ Plugin 'itchyny/lightline.vim.git'
 Plugin 'kana/vim-textobj-user.git'
 Plugin 'kana/vim-textobj-line.git'
 Plugin 'edkolev/tmuxline.vim.git'
-" Plugin 'jeaye/color_coded.git'
+" Plug 'jeaye/color_coded.git'
 Plugin 'christoomey/vim-tmux-navigator.git'
 Plugin 'tpope/vim-vinegar.git'
-Plugin 'vim-scripts/Conque-GDB.git'
+" Plug 'vim-scripts/Conque-GDB.git'
 Plugin 'suan/vim-instant-markdown.git'
 Plugin 'panozzaj/vim-autocorrect'
 Plugin 'xolox/vim-colorscheme-switcher'
 Plugin 'xolox/vim-misc'
 Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'simplyzhao/cscope_maps.vim'
-" Plugin 'ludovicchabant/vim-gutentags'
-" Plugin 'skywind3000/gutentags_plus'
-" Plugin 'w0rp/ale.git'
+" Plug 'ludovicchabant/vim-gutentags'
+" Plug 'skywind3000/gutentags_plus'
+" Plug 'w0rp/ale.git'
 
+" Initialize plugin system
+" call plug#end()
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -80,6 +89,15 @@ augroup CustomCursorLine
 augroup END
 
 
+" esc in insert mode
+inoremap kj <esc>
+"
+" " esc in command mode
+cnoremap kj <C-C>
+" " Note: In command mode mappings to esc run the command for some odd
+" " historical vi compatibility reason. We use the alternate method of
+" " existing which is Ctrl-C
+
 nnoremap <leader>l :set list!<cr>
 
 nnoremap <silent><F8> :nohlsearch<cr>
@@ -111,28 +129,6 @@ nnoremap <silent><leader>mn :set lines=999 columns=90<cr>
 
 " ================ Plugin Configuraiton  ====================
  
-" -------------- cscope_maps override  -----------------
-" The following maps all invoke one of the following cscope search types:
-"
-"   's'   symbol: find all references to the token under cursor
-"   'g'   global: find global definition(s) of the token under cursor
-"   'c'   calls:  find all calls to the function name under cursor
-"   't'   text:   find all instances of the text under cursor
-"   'e'   egrep:  egrep search for the word under cursor
-"   'f'   file:   open the filename under cursor
-"   'i'   includes: find files that include the filename under cursor
-"   'd'   called: find functions that function under cursor calls
-"
-
-noremap <leader>s :scs find s <C-R>=expand("<cword>")<CR><CR>	
-noremap <leader>g :scs find g <C-R>=expand("<cword>")<CR><CR>	
-noremap <leader>c :scs find c <C-R>=expand("<cword>")<CR><CR>	
-noremap <leader>t :scs find t <C-R>=expand("<cword>")<CR><CR>	
-noremap <leader>e :scs find e <C-R>=expand("<cword>")<CR><CR>	
-noremap <leader>f :scs find f <C-R>=expand("<cfile>")<CR><CR>	
-noremap <leader>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>	
-noremap <leader>d :scs find d <C-R>=expand("<cword>")<CR><CR>
-
 " -------------- gutentags  -----------------
 "let g:gutentags_modules = ['ctags', 'gtags_cscope']
 "
@@ -204,4 +200,69 @@ if &diff
     hi DiffText   ctermfg=233  ctermbg=yellow  guifg=#000033 guibg=#DDDDFF gui=none cterm=none
 endif
 
-let &tags=$CTAGS_DB
+
+" -- restore from the last position https://vim.fandom.com/wiki/Restore_cursor_to_file_position_in_previous_editing_session
+
+" Tell Vim to  remember certain things when we exit
+"  '10  :  marks will be remembered for up to 10 previously edited files
+"  "100 :  will save up to 100 lines for each register
+"  :20  :  up to 20 lines of command-line history will be remembered
+"  %    :  saves and restores the buffer list
+"  n... :  where to save the viminfo files
+set viminfo='10,\"100,:20,%,n~/.viminfo
+
+augroup resCur
+  autocmd!
+  autocmd BufReadPost * call setpos(".", getpos("'\""))
+augroup END
+
+"
+" Cscope
+"
+if has("cscope")
+    " Use both cscope and ctag for 'ctrl+]', 'ta', and 'vim -t'
+    set cscopetag
+    set csto=0
+	
+	let &tags=$CTAGS_DB
+    "if filereadable("cscope.out")
+    "    cs add cscope.out
+    "elseif $CSCOPE_DB != ""
+    "    cs add $CSOPE_DB
+    "endif
+
+    " Show msg when any other cscope db added
+    " set cscopeverbose
+
+    ""nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+    ""nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+    ""nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+    ""nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+    ""nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+    ""nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+    ""nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    ""nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+endif
+" -------------- cscope_maps override  -----------------
+" The following maps all invoke one of the following cscope search types:
+"
+"   's'   symbol: find all references to the token under cursor
+"   'g'   global: find global definition(s) of the token under cursor
+"   'c'   calls:  find all calls to the function name under cursor
+"   't'   text:   find all instances of the text under cursor
+"   'e'   egrep:  egrep search for the word under cursor
+"   'f'   file:   open the filename under cursor
+"   'i'   includes: find files that include the filename under cursor
+"   'd'   called: find functions that function under cursor calls
+"
+noremap <leader>s :scs find s <C-R>=expand("<cword>")<CR><CR>	
+noremap <leader>g :scs find g <C-R>=expand("<cword>")<CR><CR>	
+noremap <leader>c :scs find c <C-R>=expand("<cword>")<CR><CR>	
+noremap <leader>t :scs find t <C-R>=expand("<cword>")<CR><CR>	
+noremap <leader>e :scs find e <C-R>=expand("<cword>")<CR><CR>	
+noremap <leader>f :scs find f <C-R>=expand("<cfile>")<CR><CR>	
+noremap <leader>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>	
+noremap <leader>d :scs find d <C-R>=expand("<cword>")<CR><CR>
+
+
