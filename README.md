@@ -7,17 +7,20 @@ How to setup
 Clone this repository as
 ```
 $ cd ~
-$ git clone https://github.com/AnandSingh/.vim ~/.vim
-$ ln -s ~/.vim/.vimrc ~/.vimrc
-$ ln -s ~/.vim/.bashrc ~/.bashrc
-$ cd ~/.vim
-$ git submodule init
-$ git submodule update
+$ git clone https://github.com/AnandSingh/.vim ~/vim
+$ cp ~/vim/vimrc ~/.vimrc
 ```
-Upgrading all bundled plugins
+
+Install vundle 
+------
 ```
-$ git submodule foreach git pull origin master
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
+
+Install all the vim plugin
+------
+Open the vim and run :PluginInstall
+
 Below are the list of plugin used and it's sources
 ------
 
@@ -54,26 +57,7 @@ Below are the list of plugin used and it's sources
     	export TERM=xterm-256color
     if
 ```
-To install plugins as submodule
----------
-```
-$ mkdir ~/.vim/bundle
-$ cd ~/.vim/bundle
-$ git submodule add https://github.com/scroolloose/nerdtree bundle/nerdtree
-$ git add .
-$ git commit -m "Install nerdtree as submodule "bundle/nerdtree""
-```
-To remove plugins
-------
-```
-$ git config -f .git/config --remove-section submodule.bundle/nerdtree
-$ git config -f .gitmodule --remove-section submodule.bundle/nerdtree
-$ git rm --cached bundle/nerdtree
-$ rm -rf bundle/nerdtree
-$ rm -rf .git/modules/bundle/nerdtree
-$ git add .gitmodules
-$ git commit -m "Removed plugin bundle/nerdtree"
-```
+
 Additional Information
 ------
 * Check "http://vim.wikia.com/wiki/Cscope" for additionl information on CScope
