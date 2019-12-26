@@ -1,7 +1,7 @@
 [user]
 	name = Anand Singh 
-	email = asingh3@semtech.com 
-	username = asingh3 
+	email = 
+	username = 
 [core]
 	editor = vim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
