@@ -14,6 +14,8 @@ export ZSH="/home/asingh/.oh-my-zsh"
 #ZSH_THEME="avit"
 ZSH_THEME="aks"
 
+unsetopt nomatch
+
 eval `dircolors ~/.dir_colors/dircolors`
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
