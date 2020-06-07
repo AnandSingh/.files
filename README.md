@@ -73,3 +73,84 @@ Now you are ready to start using it. Simply type ':cs help' to see the commands 
      The command 'q:' allows you to edit the command line history so you can paste large identifier names into a 'cs find g' command (Ctrl-C exits 'q:' mode).
 * Check pyhton related vim setting and plugin information at "http://www.sontek.net/blog/2011/05/07/turning_vim_into_a_modern_python_ide.html#id9"
 * Check vim with django at "https://code.djangoproject.com/wiki/UsingVimWithDjango"
+
+
+Important 
+------
+
+* <ESC> key is mapped to kj
+
+```
+inoremap jk <ESC>
+```
+
+* Leader key is <SPACE>
+```
+let mapleader = " "
+```
+
+### VIM Language 
+
+#### Verbs
+
+```
+* d: delete
+* c: change
+* y: yank (copy)
+* v: visulally select (V for line vs. character)
+```
+
+#### Modifiers
+
+```
+* i:   inside
+* a:   around
+* NUM: number (e.g: 1,2,20)
+* t:   searches for something and stops befor it
+* f:   searches for that things and land on it
+* /:   find a string (literal or regex)
+```
+
+#### Nouns
+
+```
+* w: word
+* s: sentence
+* ): sentence (another way of doing it)
+* p: paragraph
+* }: paragraph (another way of doing it)
+* t: tag (think HTML/XML)
+* b: block (think programming)
+```
+
+#### Working With Your Files
+
+```
+* vi file : open your file in vim 
+* :w      : write your changes to the file
+* :q!     : getour of vim(quit), but without your changes (!) 
+* :wq     : write your changes anf exit VIM
+* ZZ      : a faster way to do :wq
+* :saveas ~/some/path/: save your file to that location VIM
+```
+
+#### Seraching Your Text
+
+```
+* /{string} : search for string
+* t         : jump up to a character
+* f         : jump on to a character
+* *         : search for other instances of the word under your cursor
+* n         : go to the next instance when you've serached for a string
+* N         : go the the previous instance when you've searched for a string
+* ;         : go to the next instance when you've jumped to a character
+* ,         : go to the previous instance when you've jumped to a character
+```
+#### moving around in your text
+
+```
+* 0: move to the beginning of the line
+* $: move to the endof the line 
+* ^: move to the first non-blank character in the line 
+* t": jump to the 
+```
