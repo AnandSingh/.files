@@ -94,7 +94,7 @@ ssh_pi() {
 
 
 
-PASS='aks2345'
+PASS=''
 
 alias lora91='ssh_pi lora91.local'
 alias corecell='ssh_pi corecell.local'
@@ -102,10 +102,16 @@ alias pi='echo ${PASS} | sudo -S nmap -sn 10.9.16.0/24'
 alias pilab='echo ${PASS} | sudo -S nmap -sn 10.9.220.0/24'
 alias piwifi='echo ${PASS} | sudo -S nmap -sn 10.9.80.0/24'
 
+# dnf
+alias update='echo ${PASS} | sudo -S dnf upgrade --refresh'
+alias install='echo ${PASS} | sudo -S dnf -y install'
+alias remove='echo ${PASS} | sudo -S dnf -y remove'
+alias purge='echo ${PASS} | sudo -S dnf -y purge'
+
 # apt-get
-alias update='echo ${PASS} | sudo -S apt update'
-alias upgrade='echo ${PASS} | sudo -S apt update && sudo apt -y upgrade'
-alias install='echo ${PASS} | sudo -S apt -y install'
-alias remove='echo ${PASS} | sudo -S apt -y remove'
-alias purge='echo ${PASS} | sudo -S apt -y purge'
+#alias update='echo ${PASS} | sudo -S apt update'
+#alias upgrade='echo ${PASS} | sudo -S apt update && sudo apt -y upgrade'
+#alias install='echo ${PASS} | sudo -S apt -y install'
+#alias remove='echo ${PASS} | sudo -S apt -y remove'
+#alias purge='echo ${PASS} | sudo -S apt -y purge'
 
